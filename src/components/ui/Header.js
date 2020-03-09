@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {Link} from 'react-router-dom'
 import { AppBar, Toolbar, Typography, InputBase, Icon, Tabs, Tab, makeStyles, Button} from '@material-ui/core'
 import { SearchIcon } from '@material-ui/icons/Search'
 
@@ -26,9 +27,9 @@ function Header(){
             <AppBar position="static" color = "primary">
                 <Toolbar>
                     <Tabs value={value} onChange={handleChange} className={classes.tabContainer} indicatorColor="primary">
-                        <Tab className={classes.tab} label="Home" />
-                        <Tab className={classes.tab}  label="My Account" />
-                        <Tab className={classes.tab}  label="My Favorites" />
+                        <Tab className={classes.tab} component={Link} to="/" label="Home" />
+                        <Tab className={classes.tab} component={Link} to="/profile"  label="My Account" />
+                        <Tab className={classes.tab} component={Link} to="/favorites"  label="My Favorites" />
                     </Tabs>
                     <Button variant="contained" color="secondary" className={classes.button} >
                         BUTTON

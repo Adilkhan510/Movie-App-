@@ -14,9 +14,10 @@ function App() {
           <Header />
           <Switch>
             <Route exact path="/" component={()=> <div>ROUTE</div>} />
+            <Route exact path="/favorites" component={()=> <div>Favorites</div>} />
+            <Route exact path="/profile" component={()=> <div>profile</div>} />
           </Switch>
         </BrowserRouter>
-
       </ThemeProvider>
     </div>
   );
