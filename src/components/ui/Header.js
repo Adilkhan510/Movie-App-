@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import { AppBar, Toolbar, Typography, InputBase, Icon, Tabs, Tab, makeStyles, Button} from '@material-ui/core'
 import { SearchIcon } from '@material-ui/icons/Search'
@@ -23,6 +23,16 @@ function Header(){
     const handleChange=(event, value)=>{
         setValue(value)
     }
+    useEffect(()=>{
+        if(window.location.pathname === "/" && value !==0){
+            setValue(0)
+        }
+        else if(window.location.pathname === "/profile" && value !==1){
+            setValue(1)
+        }else if(window.location.pathname === "/favorites" && value !==2){
+            setValue(2)
+        }
+    })
         return (
             <AppBar position="static" color = "primary">
                 <Toolbar>
