@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 import { AppBar, Toolbar, Typography, InputBase, Icon, Tabs, Tab, makeStyles, Button} from '@material-ui/core'
 import { SearchIcon } from '@material-ui/icons/Search'
+import img from '../../Images/logo.png'
 
 const useStyles = makeStyles(theme=>({
     tabContainer: {
@@ -13,6 +14,12 @@ const useStyles = makeStyles(theme=>({
     },
     button : {
         borderRadius : "10px",
+    },
+    logo : {
+        width: "120px",
+        height : "90px",
+        marginTop : "0px",
+        marginBottom : "0px"
     }
 
 }))
@@ -35,15 +42,13 @@ function Header(){
     })
         return (
             <AppBar position="static" color = "primary">
-                <Toolbar>
+                <Toolbar disableGutters>
+                    <img src={img}  className={classes.logo} />
                     <Tabs value={value} onChange={handleChange} className={classes.tabContainer} indicatorColor="primary">
                         <Tab className={classes.tab} component={Link} to="/" label="Home" />
                         <Tab className={classes.tab} component={Link} to="/profile"  label="My Account" />
                         <Tab className={classes.tab} component={Link} to="/favorites"  label="My Favorites" />
                     </Tabs>
-                    <Button variant="contained" color="secondary" className={classes.button} >
-                        BUTTON
-                    </Button>
                 </Toolbar>
             </AppBar>
     )
