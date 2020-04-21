@@ -16,8 +16,8 @@ const useStyles = makeStyles(theme=>({
         borderRadius : "10px",
     },
     logo : {
-        width: "120px",
-        height : "90px",
+        width: "100px",
+        height : "70px",
         marginTop : "0px",
         marginBottom : "0px"
     }
@@ -42,9 +42,9 @@ function Header(){
     })
         return (
             <AppBar position="static" color = "primary">
-                <Toolbar disableGutters>
+                <Toolbar disableGutters >
                     <img src={img}  className={classes.logo} />
-                    <Tabs value={value} onChange={handleChange} className={classes.tabContainer} indicatorColor="primary">
+                    <Tabs value={value} onChange={handleChange} className={classes.tabContainer} indicatorColor="black">
                         <Tab className={classes.tab} component={Link} to="/" label="Home" />
                         <Tab className={classes.tab} component={Link} to="/profile"  label="My Account" />
                         <Tab className={classes.tab} component={Link} to="/favorites"  label="My Favorites" />

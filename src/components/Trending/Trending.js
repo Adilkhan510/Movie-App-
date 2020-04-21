@@ -12,7 +12,8 @@ const useStyles = makeStyles(theme => ({
         ...theme.containers
     },
     mainContainer : {
-
+        textAlign : "center",
+        fontSize : "10px"
     }
 }))
 const Trending = () => {
@@ -27,15 +28,17 @@ const Trending = () => {
     return (
         <>
             <Grid container direction="column" className={classes.mainContainer}>
-                <Grid item container>
-                    <Typography variant="h3" style={{marginLeft : "50%", transform : "translate(-50%)"}}>Trending Movies</Typography>
-                </Grid>
                 <Grid item container direction="row" style={{marginLeft : "5%"}} > 
                     {movieData.map((movie)=>{
-                        return <Grid item className={classes.containers}>
-                            <Typography variant="h6" style={{fontWeight : "900",border: "solid primary 1px", background : "primary"}}>{movie.title}</Typography>
+                        return (
+                        <Grid item className={classes.containers}>
                             <img src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${movie.poster_path}`} className={classes.image} />
-                        </Grid>
+                            <Grid item container className={classes.mainContainer}>
+                                <Typography variant="body1" style={{fontWeight : "900",border: "solid primary 1px", background : "primary"}}>   
+                                {movie.title}
+                                </Typography>
+                            </Grid>
+                        </Grid>)
                     })}
                 </Grid>
             </Grid>

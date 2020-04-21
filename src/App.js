@@ -8,17 +8,19 @@ import theme from './components/ui/Theme'
 import Trending from './components/Trending/Trending';
 import { Register } from './components/Auth/Register';
 
+
 function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Header />
+          <Route exact path="/" component={()=> <Trending />} />
           <Switch>
-            <Route exact path="/" component={()=> <Trending />} />
             <Route exact path="/favorites" component={()=> <div>Favorites</div>} />
             <Route exact path="/profile" component={()=>(<Register />)} />
-            <Route exact path="/Trending" component={()=> <Trending />} />
+            <Route exact path="/trending" component={()=> <Trending />} />
+            <Route exact path="/new" component={()=> <div>New movies here</div>} />
           </Switch>
         </BrowserRouter>
       </ThemeProvider>
